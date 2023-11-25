@@ -68,7 +68,7 @@ void setup() {
 		delay(1000);
 	}
 
-	WiFiMulti.addAP("wifi", "password");
+	WiFiMulti.addAP("SK_WiFiGIGA10C4", "1803000691");
 
 	//WiFi.disconnect();
 	while(WiFiMulti.run() != WL_CONNECTED) {
@@ -76,7 +76,7 @@ void setup() {
 	}
 
 	// server address, port and URL
-	webSocket.begin("address", port, "/ws/robot/1");
+	webSocket.begin("192.168.35.235", 8085, "/ws/robot/1");
 
 	// event handler
 	webSocket.onEvent(webSocketEvent);
