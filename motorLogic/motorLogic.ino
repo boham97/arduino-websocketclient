@@ -9,44 +9,44 @@ String status = "";
 int l, r;
 void setup(){
   Serial.begin(9600);
-  pinMode(12, OUTPUT);        //12, 13 오른쪽 d6,d7
-  pinMode(13, OUTPUT);
-  pinMode(14, OUTPUT);        //14, 15 왼쪽 d5,d10
-  pinMode(15, OUTPUT);
-  pinMode(4, OUTPUT);         //서브모터 제어용
-  digitalWrite(12, LOW);
-  digitalWrite(13, LOW);
-  digitalWrite(14, LOW);
-  digitalWrite(15, LOW);
+  pinMode(2, OUTPUT);        //12, 13 오른쪽 d6,d7
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);        //14, 15 왼쪽 d5,d10
+  pinMode(5, OUTPUT);
+  //pinMode(4, OUTPUT);         //서브모터 제어용
+  digitalWrite(2, LOW);
+  digitalWrite(3, LOW);
   digitalWrite(4, LOW);
+  digitalWrite(5, LOW);
+  //digitalWrite(4, LOW);
 }
 
 void goStraight(){
-  digitalWrite(12, HIGH);
-  digitalWrite(13, LOW);
-  digitalWrite(14, HIGH);
-  digitalWrite(15, LOW);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, LOW);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, LOW);
 }
 
 void goRight(){
-  digitalWrite(12, HIGH);
-  digitalWrite(13, LOW);
-  digitalWrite(14, LOW);
-  digitalWrite(15, HIGH);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, LOW);
+  digitalWrite(4, LOW);
+  digitalWrite(5, HIGH);
 }
 
 void goLeft(){
-  digitalWrite(12, LOW);
-  digitalWrite(13, HIGH);
-  digitalWrite(14, HIGH);
-  digitalWrite(15, LOW);
+  digitalWrite(2, LOW);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, LOW);
 }
 
 void stop(){
-  digitalWrite(12, LOW);
-  digitalWrite(13, LOW);
-  digitalWrite(14, LOW);
-  digitalWrite(15, LOW);
+  digitalWrite(2, LOW);
+  digitalWrite(3, LOW);
+  digitalWrite(4, LOW);
+  digitalWrite(5, LOW);
 }
 
 
@@ -71,7 +71,7 @@ void readOrder(){
         break;
       case 'U':
         up = turn + 1;
-        digitalWrite(4, HIGH);
+        //digitalWrite(4, HIGH);
         break;
       default:
         Serial.print("readOrder Fail!");
@@ -89,20 +89,20 @@ void loop(){
   }
 
   if(go <= turn && right <= turn){
-    digitalWrite(12, LOW);
+    digitalWrite(2, LOW);
   }
 
   if(left <= turn){
-    digitalWrite(13, LOW);
+    digitalWrite(3, LOW);
   }
     if(go <= turn && left <= turn){
-    digitalWrite(14, LOW);
+    digitalWrite(4, LOW);
   }
   if(right <= turn){
-    digitalWrite(15, LOW);
+    digitalWrite(5, LOW);
   }
   if(up <= turn){
-    digitalWrite(4, LOW);
+    //digitalWrite(4, LOW);
   }
 
 }

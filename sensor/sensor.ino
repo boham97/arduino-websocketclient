@@ -21,14 +21,12 @@ void loop()
     Serial.print(time);
     Serial.print(", sensor1: ");
     Serial.println(IRvalueA);
-    digitalWrite(0, LOW);
-    digitalWrite(5, HIGH);
+
   }else{
-    Serial.print(time);
-    Serial.print(", sensor2: ");
-    Serial.println(IRvalueA);
-    digitalWrite(0, HIGH);
-    digitalWrite(5, LOW);
+    //Serial.print(time);
+    //Serial.print(", sensor2: ");
+    //Serial.println(IRvalueA);
+
   }                                                                                                                                 
   
   
